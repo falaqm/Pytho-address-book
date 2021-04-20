@@ -13,6 +13,7 @@ import django_heroku
 from decouple import config
 import dj_database_url
 from pathlib import Path
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -83,7 +84,7 @@ DATABASES = {
 
 DATABASES['default'] = dj_database_url.config(default=
 'postgres://gapazwlxkgldtb:7c887afb6760dfda93655b18f5289ed5156722933d6ee8a19304e4812c6631e6@ec2-35-174-35-242.compute-1.amazonaws.com:5432/d8v42r0elmths7')
-db_from_env = dj_database_url.config(conn_max_age=600)
+db_from_env = dj_database_url.config(conn_max_age=6000)
 DATABASES['default'].update(db_from_env)
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -130,3 +131,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 django_heroku.settings(locals())
+
+### set error as danger for bootstrap
+MESSAGE_TAGS={
+    messages.ERROR:'danger',
+}
