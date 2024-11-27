@@ -83,7 +83,7 @@ DATABASES = {
 }
 
 DATABASES['default'] = dj_database_url.config(default=
-'postgres://gapazwlxkgldtb:7c887afb6760dfda93655b18f5289ed5156722933d6ee8a19304e4812c6631e6@ec2-35-174-35-242.compute-1.amazonaws.com:5432/d8v42r0elmths7')
+'postgres://gapazwlxkgldtb:7c887afb67')
 db_from_env = dj_database_url.config(conn_max_age=6000)
 DATABASES['default'].update(db_from_env)
 # Password validation
